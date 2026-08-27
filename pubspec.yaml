@@ -1,0 +1,45 @@
+name: certification_ecommerce_riverpod
+description: Flutter e-commerce app with Riverpod for certification.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # State management
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.2
+  hooks_riverpod: ^2.0.2
+
+  # Navigation
+  go_router: ^14.2.1
+
+  # Persistence
+  shared_preferences: ^2.2.3
+
+  # Utilities
+  uuid: ^4.4.0
+  intl: ^0.19.0
+  equatable: ^2.0.5
+
+  # Animations
+  flutter_animate: ^4.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.9
+  riverpod_generator: ^2.4.0
+  riverpod_lint: ^2.3.10
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/data/

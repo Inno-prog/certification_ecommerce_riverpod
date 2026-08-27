@@ -75,6 +75,10 @@ lib/
 - flutter_animate 4.5+ for animations
 - Equatable for value comparison
 
+## CI/CD
+
+A GitHub Actions workflow is configured to run `flutter analyze` and `flutter test` on every push and pull request to `main`.
+
 ## Getting Started
 
 ```bash
