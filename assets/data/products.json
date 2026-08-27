@@ -5,7 +5,7 @@
     "price": 59.99,
     "description": "High quality wireless headphones with noise cancellation.",
     "imageUrl": "https://i.pravatar.cc/150?img=11",
-    "category": "Electronics",
+    "category": "Electronique",
     "rating": 4.5
   },
   {
@@ -14,7 +14,7 @@
     "price": 89.99,
     "description": "Comfortable running shoes for daily training.",
     "imageUrl": "https://i.pravatar.cc/150?img=33",
-    "category": "Fashion",
+    "category": "Mode",
     "rating": 4.2
   },
   {
@@ -23,7 +23,7 @@
     "price": 129.99,
     "description": "Smart watch with health tracking and notifications.",
     "imageUrl": "https://i.pravatar.cc/150?img=59",
-    "category": "Electronics",
+    "category": "Electronique",
     "rating": 4.7
   },
   {
@@ -32,7 +32,7 @@
     "price": 39.99,
     "description": "Durable backpack for school and travel.",
     "imageUrl": "https://i.pravatar.cc/150?img=15",
-    "category": "Accessories",
+    "category": "Accessoires",
     "rating": 4.0
   },
   {
@@ -41,7 +41,7 @@
     "price": 24.99,
     "description": "Stylish sunglasses with UV protection.",
     "imageUrl": "https://i.pravatar.cc/150?img=22",
-    "category": "Accessories",
+    "category": "Accessoires",
     "rating": 3.9
   },
   {
@@ -50,7 +50,7 @@
     "price": 49.99,
     "description": "Compact coffee maker for home use.",
     "imageUrl": "https://i.pravatar.cc/150?img=60",
-    "category": "Home",
+    "category": "Maison",
     "rating": 4.3
   }
 ]

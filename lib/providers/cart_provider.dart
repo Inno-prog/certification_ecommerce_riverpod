@@ -5,17 +5,15 @@ class CartNotifier extends StateNotifier<List<CartItem>> {
   CartNotifier() : super([]);
 
   void add(Product product) {
-    final existing = state.indexWhere((item) => item.product.id == product.id);
-    if (existing >= 0) {
-      state = [
-        ...state.sublist(0, existing),
-        state[existing].copyWith(
-            quantity: state[existing].quantity + 1),
-        ...state.sublist(existing + 1),
-      ];
-    } else {
-      state = [...state, CartItem(id: product.id, product: product)];
-    }
+    state = [
+      for (final item in state)
+        if (item.product.id == product.id)
+          item.copyWith(quantity: item.quantity + 1)
+        else
+          item,
+      if (state.every((item) => item.product.id != product.id))
+        CartItem(id: product.id, product: product),
+    ];
   }
 
   void remove(String productId) {
@@ -42,6 +40,12 @@ class CartNotifier extends StateNotifier<List<CartItem>> {
 
   int get itemCount =>
       state.fold(0, (sum, item) => sum + item.quantity);
+
+  @override
+  void dispose() {
+    // No resources to clean up for now, but kept for future extensibility
+    super.dispose();
+  }
 }
 
 final cartProvider = StateNotifierProvider<CartNotifier, List<CartItem>>((ref) {

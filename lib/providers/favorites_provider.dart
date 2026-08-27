@@ -29,6 +29,12 @@ class FavoritesNotifier extends StateNotifier<Set<String>> {
   }
 
   bool isFavorite(String productId) => state.contains(productId);
+
+  @override
+  void dispose() {
+    // No resources to clean up for now, but kept for future extensibility
+    super.dispose();
+  }
 }
 
 final favoritesProvider =

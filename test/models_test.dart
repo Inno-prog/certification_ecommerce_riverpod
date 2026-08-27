@@ -36,7 +36,7 @@ void main() {
         rating: 0,
       );
 
-      final item = CartItem(id: 'c1', product: product, quantity: 2);
+      const item = CartItem(id: 'c1', product: product, quantity: 2);
 
       expect(item.total, 179.98);
     });
