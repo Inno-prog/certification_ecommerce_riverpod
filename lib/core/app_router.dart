@@ -23,6 +23,10 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const ProfileScreen(),
       ),
       GoRoute(
+        path: '/orders',
+        builder: (context, state) => const OrdersScreen(),
+      ),
+      GoRoute(
         path: '/product/:id',
         builder: (context, state) {
           final id = state.pathParameters['id']!;
