@@ -9,7 +9,7 @@ abstract class ProductRepository {
 class ProductRepositoryImpl implements ProductRepository {
   final MockProductDataSource dataSource;
 
-  ProductRepositoryImpl(this.dataSource);
+  ProductRepositoryImpl({required this.dataSource});
 
   @override
   Future<List<Product>> getProducts() => dataSource.getProducts();

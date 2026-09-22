@@ -3,8 +3,13 @@ import 'package:certification_ecommerce_riverpod/data/models/models.dart';
 import 'package:certification_ecommerce_riverpod/data/repositories/product_repository.dart';
 import 'package:certification_ecommerce_riverpod/data/data_sources/mock_product_data_source.dart';
 
+final mockProductDataSourceProvider =
+    Provider((ref) => MockProductDataSource());
+
 final productRepositoryProvider = Provider<ProductRepository>((ref) {
-  return ProductRepositoryImpl(MockProductDataSource());
+  return ProductRepositoryImpl(
+    dataSource: ref.watch(mockProductDataSourceProvider),
+  );
 });
 
 final productsProvider = FutureProvider.autoDispose<List<Product>>((ref) {

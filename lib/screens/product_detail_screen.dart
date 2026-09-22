@@ -67,8 +67,10 @@ class ProductDetailScreen extends ConsumerWidget {
                         ),
                       );
                     },
-                    errorBuilder: (context, error, stackTrace) =>
-                        Container(height: 320, color: const Color(0xFFF1F3FF), child: const Icon(Icons.broken_image)),
+                    errorBuilder: (context, error, stackTrace) => Container(
+                        height: 320,
+                        color: const Color(0xFFF1F3FF),
+                        child: const Icon(Icons.broken_image)),
                   ),
                 ),
                 Padding(
@@ -78,10 +80,13 @@ class ProductDetailScreen extends ConsumerWidget {
                     children: [
                       Text(
                         product.name,
-                        style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                          fontWeight: FontWeight.w800,
-                          color: const Color(0xFF1A1A2E),
-                        ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(
+                              fontWeight: FontWeight.w800,
+                              color: const Color(0xFF1A1A2E),
+                            ),
                       ),
                       const SizedBox(height: 12),
                       Row(
@@ -95,20 +100,24 @@ class ProductDetailScreen extends ConsumerWidget {
                           const Spacer(),
                           Text(
                             '${product.price.toStringAsFixed(2)} €',
-                            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                              color: const Color(0xFF6C63FF),
-                              fontWeight: FontWeight.w800,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall
+                                ?.copyWith(
+                                  color: const Color(0xFF6C63FF),
+                                  fontWeight: FontWeight.w800,
+                                ),
                           ),
                         ],
                       ),
                       const SizedBox(height: 20),
                       Text(
                         'Description',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w700,
-                          color: const Color(0xFF1A1A2E),
-                        ),
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: const Color(0xFF1A1A2E),
+                                ),
                       ),
                       const SizedBox(height: 8),
                       Text(
@@ -123,7 +132,8 @@ class ProductDetailScreen extends ConsumerWidget {
                             ref.read(cartProvider.notifier).add(product);
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('${product.name} ajoute au panier'),
+                                content:
+                                    Text('${product.name} ajoute au panier'),
                                 action: SnackBarAction(
                                   label: 'Voir',
                                   onPressed: () => context.push('/cart'),
@@ -137,7 +147,8 @@ class ProductDetailScreen extends ConsumerWidget {
                           .animate()
                           .scale(duration: 200.ms, curve: Curves.easeInOut)
                           .then()
-                          .shake(duration: 400.ms, hz: 4, curve: Curves.easeInOut),
+                          .shake(
+                              duration: 400.ms, hz: 4, curve: Curves.easeInOut),
                     ],
                   ),
                 ),

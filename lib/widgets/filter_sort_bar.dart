@@ -22,9 +22,12 @@ class FilterSortBar extends ConsumerWidget {
           DropdownButton<SortOption>(
             value: filterState.sortOption,
             items: const [
-              DropdownMenuItem(value: SortOption.relevance, child: Text(' Pertinence')),
-              DropdownMenuItem(value: SortOption.priceAsc, child: Text('Prix croissant')),
-              DropdownMenuItem(value: SortOption.priceDesc, child: Text('Prix decroissant')),
+              DropdownMenuItem(
+                  value: SortOption.relevance, child: Text(' Pertinence')),
+              DropdownMenuItem(
+                  value: SortOption.priceAsc, child: Text('Prix croissant')),
+              DropdownMenuItem(
+                  value: SortOption.priceDesc, child: Text('Prix decroissant')),
               DropdownMenuItem(value: SortOption.rating, child: Text('Notes')),
             ],
             onChanged: (value) {
@@ -62,10 +65,15 @@ class FilterSortBar extends ConsumerWidget {
               decoration: const InputDecoration(labelText: 'Trier par'),
               initialValue: ref.read(filterSortProvider).sortOption,
               items: const [
-                DropdownMenuItem(value: SortOption.relevance, child: Text('Pertinence')),
-                DropdownMenuItem(value: SortOption.priceAsc, child: Text('Prix croissant')),
-                DropdownMenuItem(value: SortOption.priceDesc, child: Text('Prix decroissant')),
-                DropdownMenuItem(value: SortOption.rating, child: Text('Notes')),
+                DropdownMenuItem(
+                    value: SortOption.relevance, child: Text('Pertinence')),
+                DropdownMenuItem(
+                    value: SortOption.priceAsc, child: Text('Prix croissant')),
+                DropdownMenuItem(
+                    value: SortOption.priceDesc,
+                    child: Text('Prix decroissant')),
+                DropdownMenuItem(
+                    value: SortOption.rating, child: Text('Notes')),
               ],
               onChanged: (value) {
                 if (value != null) {

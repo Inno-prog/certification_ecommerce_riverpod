@@ -61,10 +61,10 @@ void main() {
 
     test('Equatable — deux Order identiques sont égaux', () {
       final date = DateTime(2025, 6, 1);
-      final o1 = Order(
-          id: 'o1', items: const [_cartItem], total: 59.99, date: date);
-      final o2 = Order(
-          id: 'o1', items: const [_cartItem], total: 59.99, date: date);
+      final o1 =
+          Order(id: 'o1', items: const [_cartItem], total: 59.99, date: date);
+      final o2 =
+          Order(id: 'o1', items: const [_cartItem], total: 59.99, date: date);
       expect(o1, equals(o2));
     });
   });

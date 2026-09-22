@@ -26,8 +26,9 @@ class CartNotifier extends StateNotifier<List<CartItem>> {
       return;
     }
     state = state
-        .map((item) =>
-            item.product.id == productId ? item.copyWith(quantity: quantity) : item)
+        .map((item) => item.product.id == productId
+            ? item.copyWith(quantity: quantity)
+            : item)
         .toList();
   }
 
@@ -35,11 +36,9 @@ class CartNotifier extends StateNotifier<List<CartItem>> {
     state = [];
   }
 
-  double get total =>
-      state.fold(0, (sum, item) => sum + item.total);
+  double get total => state.fold(0, (sum, item) => sum + item.total);
 
-  int get itemCount =>
-      state.fold(0, (sum, item) => sum + item.quantity);
+  int get itemCount => state.fold(0, (sum, item) => sum + item.quantity);
 
   @override
   void dispose() {

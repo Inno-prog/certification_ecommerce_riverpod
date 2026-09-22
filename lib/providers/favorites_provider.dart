@@ -2,8 +2,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:certification_ecommerce_riverpod/data/repositories/favorites_repository.dart';
 import 'package:certification_ecommerce_riverpod/data/data_sources/local_favorites_data_source.dart';
 
+final localFavoritesDataSourceProvider =
+    Provider((ref) => LocalFavoritesDataSource());
+
 final favoritesRepositoryProvider = Provider<FavoritesRepository>((ref) {
-  return FavoritesRepositoryImpl(LocalFavoritesDataSource());
+  return FavoritesRepositoryImpl(
+    dataSource: ref.watch(localFavoritesDataSourceProvider),
+  );
 });
 
 class FavoritesNotifier extends StateNotifier<Set<String>> {

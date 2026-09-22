@@ -26,7 +26,8 @@ void main() {
   test('FavoritesNotifier toggle adds and removes id', () async {
     final container = ProviderContainer(
       overrides: [
-        favoritesRepositoryProvider.overrideWithValue(FakeFavoritesRepository()),
+        favoritesRepositoryProvider
+            .overrideWithValue(FakeFavoritesRepository()),
       ],
     );
 

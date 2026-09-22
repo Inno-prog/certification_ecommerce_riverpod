@@ -40,7 +40,8 @@ class ProductCard extends ConsumerWidget {
                 children: [
                   Positioned.fill(
                     child: ClipRRect(
-                      borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+                      borderRadius:
+                          const BorderRadius.vertical(top: Radius.circular(20)),
                       child: Image.network(
                         product.imageUrl,
                         fit: BoxFit.cover,
@@ -53,26 +54,30 @@ class ProductCard extends ConsumerWidget {
                               child: SizedBox(
                                 width: 24,
                                 height: 24,
-                                child: CircularProgressIndicator(strokeWidth: 2),
+                                child:
+                                    CircularProgressIndicator(strokeWidth: 2),
                               ),
                             ),
                           );
                         },
-                        errorBuilder: (context, error, stackTrace) =>
-                            Container(color: const Color(0xFFF1F3FF), child: const Icon(Icons.broken_image)),
+                        errorBuilder: (context, error, stackTrace) => Container(
+                            color: const Color(0xFFF1F3FF),
+                            child: const Icon(Icons.broken_image)),
                       ),
                     ),
                   ),
                   Positioned(
                     top: 8,
                     right: 8,
-                      child: Material(
-                        color: Colors.white.withValues(alpha: 0.9),
-                        shape: const CircleBorder(),
+                    child: Material(
+                      color: Colors.white.withValues(alpha: 0.9),
+                      shape: const CircleBorder(),
                       child: InkWell(
                         customBorder: const CircleBorder(),
                         onTap: () {
-                          ref.read(favoritesProvider.notifier).toggle(product.id);
+                          ref
+                              .read(favoritesProvider.notifier)
+                              .toggle(product.id);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(6.0),
@@ -105,7 +110,8 @@ class ProductCard extends ConsumerWidget {
                   const SizedBox(height: 4),
                   Row(
                     children: [
-                      Icon(Icons.star_rounded, size: 16, color: Colors.amber[600]),
+                      Icon(Icons.star_rounded,
+                          size: 16, color: Colors.amber[600]),
                       const SizedBox(width: 4),
                       Text(
                         '${product.rating}',
@@ -125,7 +131,8 @@ class ProductCard extends ConsumerWidget {
                         ),
                       ),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 6),
                         decoration: BoxDecoration(
                           color: const Color(0xFF6C63FF).withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(12),

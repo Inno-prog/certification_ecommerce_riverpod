@@ -77,7 +77,8 @@ void main() {
         ],
       );
 
-      final result = await container.read(productDetailProvider('unknown').future);
+      final result =
+          await container.read(productDetailProvider('unknown').future);
 
       expect(result, isNull);
     });

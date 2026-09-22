@@ -8,7 +8,7 @@ abstract class FavoritesRepository {
 class FavoritesRepositoryImpl implements FavoritesRepository {
   final LocalFavoritesDataSource dataSource;
 
-  FavoritesRepositoryImpl(this.dataSource);
+  FavoritesRepositoryImpl({required this.dataSource});
 
   @override
   Future<Set<String>> getFavorites() => dataSource.getFavorites();

@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:certification_ecommerce_riverpod/data/models/models.dart';
 
 class MockProductDataSource {
-
   Future<List<Product>> getProducts() async {
     await Future.delayed(const Duration(milliseconds: 800));
     final String jsonString =

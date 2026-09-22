@@ -30,10 +30,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       appBar: AppBar(
         title: Text(
           l10n.appTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800, letterSpacing: -0.5),
+          style:
+              const TextStyle(fontWeight: FontWeight.w800, letterSpacing: -0.5),
         ),
         actions: [
-          // Bouton favoris avec label d'accessibilité
           Semantics(
             label: l10n.favorites,
             button: true,
@@ -42,7 +42,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               onPressed: () => context.push('/favorites'),
             ),
           ),
-          // Bouton panier avec badge
           Semantics(
             label: '${l10n.cart} — $cartCount ${l10n.items(cartCount)}',
             button: true,
@@ -68,7 +67,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       ),
                       child: Text(
                         '$cartCount',
-                        style: const TextStyle(color: Colors.white, fontSize: 10),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 10),
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -80,7 +80,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ),
       body: productsAsync.when(
         data: (products) {
-          // Filtrage par catégorie et prix
           var filtered = products;
           if (filterSortState.selectedCategory != null) {
             filtered = filtered
@@ -98,7 +97,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 .toList();
           }
 
-          // Tri
           switch (filterSortState.sortOption) {
             case SortOption.priceAsc:
               filtered.sort((a, b) => a.price.compareTo(b.price));
@@ -127,11 +125,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     mainAxisSpacing: 12,
                   ),
                   itemCount: filtered.length,
-                  // itemBuilder lazy-load les cartes produit
                   itemBuilder: (context, index) {
                     final product = filtered[index];
                     return Semantics(
-                      label: '${product.name} — ${product.price.toStringAsFixed(2)} €',
+                      label:
+                          '${product.name} — ${product.price.toStringAsFixed(2)} €',
                       button: true,
                       child: ProductCard(
                         product: product,

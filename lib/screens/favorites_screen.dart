@@ -18,16 +18,16 @@ class FavoritesScreen extends ConsumerWidget {
       ),
       body: favoritesAsync.when(
         data: (products) {
-          final favoriteProducts = products
-              .where((p) => favoriteIds.contains(p.id))
-              .toList();
+          final favoriteProducts =
+              products.where((p) => favoriteIds.contains(p.id)).toList();
 
           if (favoriteProducts.isEmpty) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.favorite_border, size: 64, color: Colors.grey[400]),
+                  Icon(Icons.favorite_border,
+                      size: 64, color: Colors.grey[400]),
                   const SizedBox(height: 16),
                   Text(
                     'Aucun favori pour le moment',

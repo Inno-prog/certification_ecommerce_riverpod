@@ -125,8 +125,8 @@ class CartScreen extends ConsumerWidget {
                             title: Text(item.product.name,
                                 style: const TextStyle(
                                     fontWeight: FontWeight.w700)),
-                            subtitle: Text(
-                                '${item.total.toStringAsFixed(2)} €'),
+                            subtitle:
+                                Text('${item.total.toStringAsFixed(2)} €'),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -134,12 +134,12 @@ class CartScreen extends ConsumerWidget {
                                   label: 'Diminuer quantité',
                                   button: true,
                                   child: IconButton(
-                                    icon: const Icon(
-                                        Icons.remove_circle_outline),
-                                    onPressed: () =>
-                                        ref.read(cartProvider.notifier)
-                                            .updateQuantity(item.product.id,
-                                                item.quantity - 1),
+                                    icon:
+                                        const Icon(Icons.remove_circle_outline),
+                                    onPressed: () => ref
+                                        .read(cartProvider.notifier)
+                                        .updateQuantity(
+                                            item.product.id, item.quantity - 1),
                                   ),
                                 ),
                                 Text('${item.quantity}',
@@ -149,12 +149,11 @@ class CartScreen extends ConsumerWidget {
                                   label: 'Augmenter quantité',
                                   button: true,
                                   child: IconButton(
-                                    icon: const Icon(
-                                        Icons.add_circle_outline),
-                                    onPressed: () =>
-                                        ref.read(cartProvider.notifier)
-                                            .updateQuantity(item.product.id,
-                                                item.quantity + 1),
+                                    icon: const Icon(Icons.add_circle_outline),
+                                    onPressed: () => ref
+                                        .read(cartProvider.notifier)
+                                        .updateQuantity(
+                                            item.product.id, item.quantity + 1),
                                   ),
                                 ),
                                 Semantics(
@@ -163,9 +162,9 @@ class CartScreen extends ConsumerWidget {
                                   child: IconButton(
                                     icon: const Icon(Icons.delete_outline,
                                         color: Colors.redAccent),
-                                    onPressed: () =>
-                                        ref.read(cartProvider.notifier)
-                                            .remove(item.product.id),
+                                    onPressed: () => ref
+                                        .read(cartProvider.notifier)
+                                        .remove(item.product.id),
                                   ),
                                 ),
                               ],

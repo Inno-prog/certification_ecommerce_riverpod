@@ -34,7 +34,8 @@ void main() {
     ];
 
     test('filter by category returns only matching products', () {
-      final filtered = products.where((p) => p.category == 'Electronics').toList();
+      final filtered =
+          products.where((p) => p.category == 'Electronics').toList();
       expect(filtered.length, 2);
       expect(filtered.every((p) => p.category == 'Electronics'), true);
     });

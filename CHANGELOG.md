@@ -4,6 +4,27 @@ Format basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
 ---
 
+## [1.4.0] — 2025-09-22
+
+### Ajouté
+- Extraction du `ThemeData` dans `core/app_theme.dart` avec fonction `buildAppTheme()`
+- Provider de thème via `@riverpod` annotation (`appThemeProvider`) avec fichier généré `theme_provider.g.dart` (code generation)
+- **Dependency Injection** : `LocalFavoritesDataSource` et `MockProductDataSource` injectés via providers intermédiaires (`localFavoritesDataSourceProvider`, `mockProductDataSourceProvider`)
+- Utilisation de `flutter_hooks` dans `HomeScreen` (`useState` pour `_selectedIndex`)
+- Nouveaux tests : `shopping_cart_test.dart` (8 tests), `product_filter_sort_test.dart` (9 tests)
+- Labels `Semantics` ajoutés dans `ProductCard` et `ProfileScreen`
+- Documentation runtime language switching dans le README
+
+### Modifié
+- `main.dart` : utilisation de `buildAppTheme()` extrait, `appThemeProvider` pour le thème
+- `product_providers.dart` : DI via `mockProductDataSourceProvider`
+- `favorites_provider.dart` : DI via `localFavoritesDataSourceProvider`
+- `home_screen.dart` : migration `ConsumerStatefulWidget` → `HookConsumerWidget`
+- `FavoritesRepositoryImpl` / `ProductRepositoryImpl` : constructeurs nommés `{required this.dataSource}`
+- README : comptages de tests corrigés, section langue dynamique ajoutée
+
+---
+
 ## [1.3.0] — 2025-09-15
 
 ### Ajouté

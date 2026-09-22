@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:certification_ecommerce_riverpod/l10n/app_localizations.dart';
 import 'package:certification_ecommerce_riverpod/providers/orders_provider.dart';
@@ -39,39 +39,36 @@ class OrdersScreen extends ConsumerWidget {
               itemCount: orders.length,
               itemBuilder: (context, index) {
                 final order = orders[index];
-                return _OrderCard(order: order)
-                    .animate()
-                    .fadeIn(delay: (index * 60).ms)
-                    .slideY(begin: 0.1);
+                return _OrderCard(order: order);
               },
             ),
     );
   }
 }
 
-/// Carte d'une commande individuelle
-class _OrderCard extends StatelessWidget {
+/// Carte d'une commande individuelle — utilise flutter_hooks pour le caching
+class _OrderCard extends HookWidget {
   final Order order;
   const _OrderCard({required this.order});
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final dateStr = useMemoized(
+      () => '${order.date.day.toString().padLeft(2, '0')}/'
+          '${order.date.month.toString().padLeft(2, '0')}/'
+          '${order.date.year}',
+    );
 
-    // Couleur et label selon le statut
     final (statusLabel, statusColor) = switch (order.status) {
       OrderStatus.pending => (l10n.orderStatusPending, Colors.orange),
       OrderStatus.shipped => (l10n.orderStatusShipped, Colors.blue),
       OrderStatus.delivered => (l10n.orderStatusDelivered, Colors.green),
     };
 
-    final dateStr =
-        '${order.date.day.toString().padLeft(2, '0')}/'
-        '${order.date.month.toString().padLeft(2, '0')}/'
-        '${order.date.year}';
-
     return Semantics(
-      label: '${l10n.orders} — ${order.total.toStringAsFixed(2)} € — $statusLabel',
+      label:
+          '${l10n.orders} — ${order.total.toStringAsFixed(2)} € — $statusLabel',
       child: Container(
         margin: const EdgeInsets.only(bottom: 14),
         decoration: BoxDecoration(
@@ -90,7 +87,6 @@ class _OrderCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // En-tête : ID + statut
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -103,8 +99,8 @@ class _OrderCard extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                     decoration: BoxDecoration(
                       color: statusColor.withValues(alpha: 0.12),
                       borderRadius: BorderRadius.circular(20),
@@ -121,7 +117,6 @@ class _OrderCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              // Articles
               ...order.items.map(
                 (item) => Padding(
                   padding: const EdgeInsets.only(bottom: 4),
@@ -146,7 +141,6 @@ class _OrderCard extends StatelessWidget {
                 ),
               ),
               const Divider(height: 20),
-              // Total + date
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

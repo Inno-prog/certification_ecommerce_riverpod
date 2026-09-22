@@ -68,7 +68,8 @@ class ProfileScreen extends ConsumerWidget {
                 const Divider(height: 32),
                 // Sélecteur de langue
                 Semantics(
-                  label: '${l10n.language}: ${currentLocale.languageCode == 'fr' ? 'Français' : 'English'}',
+                  label:
+                      '${l10n.language}: ${currentLocale.languageCode == 'fr' ? 'Français' : 'English'}',
                   button: true,
                   child: ListTile(
                     leading: const Icon(Icons.language_outlined),
@@ -109,8 +110,8 @@ class ProfileScreen extends ConsumerWidget {
           ),
           const SizedBox(height: 16),
           Text(l10n.chooseLanguage,
-              style: const TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.w700)),
+              style:
+                  const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
           const SizedBox(height: 8),
           for (final entry in const {
             'Français': Locale('fr'),
